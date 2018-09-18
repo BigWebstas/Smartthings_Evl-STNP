@@ -1,4 +1,4 @@
-FROM archlinux
+FROM base/archlinux
 
 ARG architecture=x64
 ARG node_version=6.11.1
