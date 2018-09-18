@@ -14,12 +14,10 @@ LABEL org.label-schema.schema-version="1.0" \
       org.label-schema.build-date=$build_date \
       architecture=$architecture
 
-RUN apt-get update \
- && apt-get install wget \
- && apt-get clean \
+RUN pacman -Syu \
+ && packman -S wget \
  && wget -O - https://nodejs.org/dist/v${node_version}/node-v${node_version}-linux-${architecture}.tar.xz \
   | tar -xJvf - --strip-components=1 -C /usr/local/ \
- && apt-get remove --auto-remove wget --purge \
  && rm -rf /tmp/* 
 
 ENV NODE=/usr/local/bin/node
